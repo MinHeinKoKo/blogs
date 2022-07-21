@@ -1,0 +1,98 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{posts.title}}</title>
+    <link rel="stylesheet" href="{%static 'assests/node_modules/bootstrap/dist/css/bootstrap.css' %}">
+</head>
+<body>
+    <div class="container mb-5 mt-5">
+        <div class="row d-flex justify-content-center align-content-center"> 
+            <div class="col-6">
+                <div class="imgBx mt-3">
+                    {% if posts.image %}
+                        <img src="{{ posts.image.url }}" class="card-img-top" alt="...">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-6 d-flex justify-content-center align-content-center ">
+                <div class="">
+                    <h1>{{ posts.create_at|timesince }}</h1>
+                    <h1>{{ posts.create_at}}</h1>
+                    <!-- <h1>{{ posts.create_at|date:'d-m-Y H:i' }}</h1> -->
+                    <h3>{{posts.title}}</h3>
+                    <p>
+                        {{posts.intro}}
+                    </p>
+                    <p>
+                        <small>Category : {{posts.category}}</small>
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-5 justify-content-evenly">
+                    <!-- <h1>{{ posts.create_at|timesince }}</h1>
+                    <h1>{{ posts.create_at}}</h1> -->
+                    <!-- <h1>{{ posts.create_at|date:'d-m-Y H:i' }}</h1>
+                    <h3>{{posts.title}}</h3> -->
+                    <div class="col-12">
+                        <p>
+                            {{ posts.content }}
+                        </p>
+                        <p>
+                            {{posts.body}}
+                        </p>
+                        <p>
+                            <small>Category : {{posts.category}}</small>
+                        </p>
+                        <hr>
+                        <h2>Comments</h2>
+                        
+                    </div>
+                    <div class="col-5 justify-content-center align-content-center d-flex">
+                        <form action="" method="post">
+                            {% csrf_token %} 
+    
+                            {{ form.as_p }}
+    
+                            <div class="container">
+                                <div class="row">
+                                    <button class="btn btn-primary ">Submit Comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-6">
+                    {% for comment in posts.comments.all %}
+                    <!-- <article class="">
+                        <div>
+                            <strong>{{ comment.name }}</strong><small>{{comment.create_at|timesince}} ago</small>
+                            {{ comment.body }}
+                        </div>
+                    </article>  -->
+                    
+                        
+                            
+                                <article class="border shadow px-4 p-2 mt-3" style="border-radius: 10px;">
+                                    <div class="">
+                                        <strong>{{ comment.name }}</strong>
+                                        <span>
+                                            <small>{{comment.create_at|timesince}} ago</small>
+                                        </span>
+                                        <p>{{ comment.body }}</p>
+                                    </div>
+                                </article>
+                            
+                        
+
+                    {% endfor %}
+                    </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% block title %}{{category.title}}| {% endblock %}
+
+{% block content %}
+    {% for post in category.posts.all %}
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{%static 'assests/img/pexels-hitarth-jadhav-220357.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.content }}</p>
+                        <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
