@@ -362,7 +362,6 @@ p{
     color: var(--black);
     font-size: 16px;
     font-weight: 500;
-    text-transform: uppercase;
 }
 .contact .contactForm .row2 textarea{
     width: 100%;
@@ -374,7 +373,6 @@ p{
     color: var(--black);
     font-size: 16px;
     font-weight: 400;
-    text-transform: uppercase;
 }
 .contact .contactForm .row2 textarea{
     resize: none;

@@ -123,41 +123,7 @@
                 {% endfor %}
             </div>
         </div>
-        <!-- <div class="contentBox">
-            <div class="postColumn">
-                <div class="postBox extraHeight">
-                    <div class="imgBox">
-                        <img src="{%static 'assests/img/pexels-hitarth-jadhav-220357.jpg' %}" class="cover" alt="">
-                    </div>
-                    <div class="textBox">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, iste. Magnam eveniet quae sed iste beatae est atque saepe vitae.</p>
-                        <a href="#" class="btn"> Read More</a>
-                    </div>
-                </div>
-                <div class="postBox extraHeight">
-                    <div class="imgBox">
-                        <img src="{%static 'assests/img/pexels-hitarth-jadhav-220357.jpg' %}" class="cover" alt="">
-                    </div>
-                    <div class="textBox">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, iste. Magnam eveniet quae sed iste beatae est atque saepe vitae.</p>
-                        <a href="#" class="btn"> Read More</a>
-                    </div>
-                </div>
-                <div class="postBox extraHeight">
-                    <div class="imgBox">
-                        <img src="{%static 'assests/img/pexels-hitarth-jadhav-220357.jpg' %}" class="cover" alt="">
-                    </div>
-                    <div class="textBox">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, iste. Magnam eveniet quae sed iste beatae est atque saepe vitae.</p>
-                        <a href="#" class="btn"> Read More</a>
-                    </div>
-                </div>
-            </div>
-             -->
-        <!-- </div>
-        <div class="title">
-            <a href="#" class="btn mt-5">Load More</a>
-        </div> -->
+        
     </section>
 
     <!-- contact -->
@@ -166,22 +132,31 @@
             <h2>Get in Touch</h2>
             <p class="mt-4 w-50 text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, quasi veniam deleniti? Animi, enim. Quos fugiat, reiciendis eius maiores aspernatur harum! Ipsa eos aliquid voluptatibus at.</p>
         </div>
-        <div class="contactForm">
-            <div class="row">
-                <input type="text" name="" placeholder="First Name">
-                <input type="text" name="" placeholder="Last Name">
-            </div>
-            <div class="row">
-                <input type="text" name="" placeholder="Email Address">
-                <input type="text" name="" placeholder="Mobile No.">
-            </div>
-            <div class="row2">
-                <textarea placeholder="Message"></textarea>
-            </div>
-            <div class="row2">
-                <input type="submit" class="btn" value="send">
-            </div>
+        <!-- {% if name %}
+        <div class="title d-flex justify-content-center text-center">
+            <h2>Thanks {{name}}</h2>
+            <p class="mt-4 w-50 text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, quasi veniam deleniti? Animi, enim. Quos fugiat, reiciendis eius maiores aspernatur harum! Ipsa eos aliquid voluptatibus at.</p>
         </div>
+        {% endif %} -->
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="contactForm">
+                <div class="row">
+                    <input type="text" name="name" placeholder="First Name">
+                    <input type="text" name="secondname" placeholder="Last Name">
+                </div>
+                <div class="row">
+                    <input type="text" name="email" placeholder="Email Address">
+                    <input type="text" name="phone" placeholder="Mobile No.">
+                </div>
+                <div class="row2">
+                    <textarea placeholder="Message" name="message"></textarea>
+                </div>
+                <div class="row2">
+                    <input type="submit" class="btn" value="send">
+                </div>
+            </div>
+        </form>
     </section>
     <!-- Footer -->
     <footer class="">
